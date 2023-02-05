@@ -10,7 +10,7 @@
 
 **[Whatsapp Profile](https://bit.ly/paul-jacome-whatsapp)**
 
-![Product_Png](https://raw.githubusercontent.com/ankalago/banco-pichincha-test/main/)
+![Product_Png](https://raw.githubusercontent.com/ankalago/banco-pichincha-test/main/screenshot.png)
 
 ## Install Dependencies
 

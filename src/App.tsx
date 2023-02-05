@@ -1,6 +1,7 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import Wrapper from './components/Wrapper/Wrapper';
+import GlobalStyle from './globalStyles'
+import Layout from './components/Layout/Layout';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,7 +18,8 @@ const App: React.FC<Props> = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Wrapper/>
+      <GlobalStyle />
+      <Layout/>
     </QueryClientProvider>
   )
 }

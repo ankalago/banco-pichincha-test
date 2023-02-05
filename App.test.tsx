@@ -10,7 +10,7 @@ describe('AppComponent', () => {
   });
 
   it('should render the component', () => {
-    const wrapper = screen.getByText(/Hello World!/);
+    const wrapper = screen.getByText(/List Pokemons/);
     expect(wrapper).toBeInTheDocument();
   });
 })

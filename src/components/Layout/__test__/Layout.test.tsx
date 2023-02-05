@@ -1,16 +1,16 @@
 import { screen, render } from '@testing-library/react';
 import axios from 'axios';
-import Wrapper from '../Wrapper';
+import Layout from '../Layout';
 
 jest.mock('axios');
 
-describe('WapperComponent', () => {
+describe('LayoutComponent', () => {
   beforeEach(() => {
-    render(<Wrapper />);
+    render(<Layout />);
   });
 
   it('should render the component', () => {
-    const wrapper = screen.getByText(/Hello World!/);
+    const wrapper = screen.getByText(/List Pokemons/);
     expect(wrapper).toBeInTheDocument();
   });
 })
