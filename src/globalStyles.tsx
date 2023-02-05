@@ -101,7 +101,7 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 0.375rem;
     border-color: #d1d5db;
     background-image: linear-gradient(#4f46e5, #4f46e5);
-    background-size: 70% 100%;
+    background-size: 0% 100%;
     background-repeat: no-repeat;
     box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
   }
