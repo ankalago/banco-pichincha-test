@@ -13,14 +13,25 @@ exports[`LayoutComponent should render the component 1`] = `
     <div
       class="sc-dkrFOg jxlyB"
     >
-      <input
-        class="search"
-        name=""
-        type="text"
-      />
+      <label
+        for="search"
+      >
+        search
+      </label>
+      <div
+        class="sc-jSUZER btAxHp"
+      >
+        <input
+          data-testid="search"
+          id="search"
+          placeholder="Search"
+          type="text"
+          value=""
+        />
+      </div>
       <button
         class="add"
-        name=""
+        name="new"
         type="button"
       >
         Nuevo
@@ -48,41 +59,25 @@ exports[`LayoutComponent should render the component 1`] = `
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>
-                Alakazam
-              </td>
-              <td>
-                https://assets.pokemon.com/assets/cms2/img/pokedex/detail/065.png
-              </td>
-              <td>
-                79
-              </td>
-              <td>
-                61
-              </td>
-              <td>
-                Actions
-              </td>
-            </tr>
-          </tbody>
+          <tbody />
         </table>
       </div>
       <div
         class="sc-eDvSVe hvxeMv"
       >
         <div
-          class="sc-jSUZER iwWwpK"
+          class="sc-iBYQkv ksQtxZ"
         >
           New Pokemon
         </div>
-        <form>
+        <form
+          data-testid="form"
+        >
           <div
-            class="sc-gKPRtg eiEucA"
+            class="sc-ftTHYK dXNeFx"
           >
             <div
-              class="sc-iBYQkv bNWemY"
+              class="sc-pyfCe eBIqyv"
             >
               <label
                 for="name"
@@ -90,7 +85,7 @@ exports[`LayoutComponent should render the component 1`] = `
                 Name
               </label>
               <div
-                class="sc-pyfCe jBfwdF"
+                class="sc-jSUZER btAxHp"
               >
                 <input
                   class=""
@@ -102,7 +97,7 @@ exports[`LayoutComponent should render the component 1`] = `
               </div>
             </div>
             <div
-              class="sc-iBYQkv bNWemY"
+              class="sc-pyfCe eBIqyv"
             >
               <label
                 for="hp"
@@ -110,7 +105,7 @@ exports[`LayoutComponent should render the component 1`] = `
                 Hard Power
               </label>
               <div
-                class="sc-pyfCe jBfwdF"
+                class="sc-jSUZER btAxHp"
               >
                 <input
                   class=""
@@ -122,7 +117,7 @@ exports[`LayoutComponent should render the component 1`] = `
               </div>
             </div>
             <div
-              class="sc-iBYQkv bNWemY"
+              class="sc-pyfCe eBIqyv"
             >
               <label
                 for="type"
@@ -130,7 +125,7 @@ exports[`LayoutComponent should render the component 1`] = `
                 Type
               </label>
               <div
-                class="sc-pyfCe jBfwdF"
+                class="sc-jSUZER btAxHp"
               >
                 <input
                   class=""
@@ -142,7 +137,7 @@ exports[`LayoutComponent should render the component 1`] = `
               </div>
             </div>
             <div
-              class="sc-iBYQkv bNWemY"
+              class="sc-pyfCe eBIqyv"
             >
               <label
                 for="image"
@@ -150,7 +145,7 @@ exports[`LayoutComponent should render the component 1`] = `
                 Image
               </label>
               <div
-                class="sc-pyfCe jBfwdF"
+                class="sc-jSUZER btAxHp"
               >
                 <input
                   class=""
@@ -162,7 +157,7 @@ exports[`LayoutComponent should render the component 1`] = `
               </div>
             </div>
             <div
-              class="sc-iBYQkv bNWemY"
+              class="sc-pyfCe eBIqyv"
             >
               <label
                 for="attack"
@@ -170,7 +165,7 @@ exports[`LayoutComponent should render the component 1`] = `
                 Attack
               </label>
               <div
-                class="sc-jrcTuL dGSIcP"
+                class="sc-gKPRtg omiaA"
               >
                 <span>
                   0
@@ -191,7 +186,7 @@ exports[`LayoutComponent should render the component 1`] = `
               </div>
             </div>
             <div
-              class="sc-iBYQkv bNWemY"
+              class="sc-pyfCe eBIqyv"
             >
               <label
                 for="defense"
@@ -199,7 +194,7 @@ exports[`LayoutComponent should render the component 1`] = `
                 Defense
               </label>
               <div
-                class="sc-jrcTuL dGSIcP"
+                class="sc-gKPRtg omiaA"
               >
                 <span>
                   0
@@ -220,7 +215,7 @@ exports[`LayoutComponent should render the component 1`] = `
               </div>
             </div>
             <div
-              class="sc-ftTHYK kRrDxX"
+              class="sc-jrcTuL hlbgqN"
             >
               <button
                 data-testid="submit"

@@ -19,7 +19,7 @@ const Pokemons: React.FC<Props> = () => {
       </thead>
       <tbody>
       {data?.map(pokemon => (
-        <tr>
+        <tr key={pokemon.id}>
           <td>{pokemon.name}</td>
           <td>{pokemon.image}</td>
           <td>{pokemon.attack}</td>

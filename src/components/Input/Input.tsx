@@ -6,7 +6,7 @@ type Props = {
   label: string
   placeholder?: string
   className?: string
-  setValue: Function;
+  setValue?: Function;
   value?: string;
 }
 
@@ -16,7 +16,7 @@ const Input: React.FC<Props> = ({ name, label, placeholder, className, setValue,
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const valueRange = e.target.value
     setValueInput(valueRange)
-    setValue(name, valueRange)
+    setValue && setValue(name, valueRange)
   }
 
   return (
