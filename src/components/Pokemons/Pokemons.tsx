@@ -1,13 +1,23 @@
 import React from 'react';
 import { useQueryDataPokemons } from '../../hook/useQueryData';
+import editIcon from '../../assets/edit.svg'
+import removeIcon from '../../assets/remove.svg'
+import imageIcon from '../../assets/image.svg'
+import { TablePokemon } from './styles';
 
-type Props = {}
+type Props = {
+  pokemonSelected: Function
+  pokemonRemoved: Function
+}
 
-const Pokemons: React.FC<Props> = () => {
+const params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
+width=300,height=300,left=100,top=100`;
+
+const Pokemons: React.FC<Props> = ({ pokemonSelected, pokemonRemoved }) => {
   const { data } = useQueryDataPokemons()
 
   return (
-    <table>
+    <TablePokemon>
       <thead>
       <tr>
         <th>Name</th>
@@ -19,16 +29,21 @@ const Pokemons: React.FC<Props> = () => {
       </thead>
       <tbody>
       {data?.map(pokemon => (
-        <tr key={pokemon.id}>
-          <td>{pokemon.name}</td>
-          <td>{pokemon.image}</td>
+        <tr key={pokemon.name}>
+          <td><b>{pokemon.name}</b></td>
+          <td>
+            <img data-testid="image" src={imageIcon} height={32} alt="image" onClick={() => window.open(pokemon.image, 'image', params)} />
+          </td>
           <td>{pokemon.attack}</td>
           <td>{pokemon.defense}</td>
-          <td>Actions</td>
+          <td>
+            <img data-testid="edit" src={editIcon} width={18} height={18} className="actions" alt="edit" onClick={() => pokemonSelected(pokemon.id)} />
+            <img data-testid="remove" src={removeIcon} width={18} height={18} className="actions" alt="remove" onClick={() => pokemonRemoved(pokemon.id)} />
+          </td>
         </tr>
       ))}
       </tbody>
-    </table>
+    </TablePokemon>
   )
 }
 

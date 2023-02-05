@@ -73,6 +73,7 @@ const GlobalStyle = createGlobalStyle`
 
   input[type='text'] {
     font-family: 'Poppins', sans-serif;
+    max-height: 40px;
     font-size: .875rem;
     padding: 0.5rem 0.75rem;
     border-width: 1px;
@@ -131,6 +132,7 @@ const GlobalStyle = createGlobalStyle`
 
   button {
     font-family: 'Poppins', sans-serif;
+    max-height: 40px;
     font-size: .875rem;
     line-height: 1.25rem;
     padding: 0.5rem 0.75rem;

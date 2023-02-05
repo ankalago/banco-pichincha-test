@@ -10,7 +10,7 @@ type Props = {
   value?: string;
 }
 
-const Input: React.FC<Props> = ({ name, label, placeholder, className, setValue, value }) => {
+const Input: React.FC<Props> = ({ name, label, placeholder, className, setValue, value = "" }) => {
   const [valueInput, setValueInput] = useState(value)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +23,7 @@ const Input: React.FC<Props> = ({ name, label, placeholder, className, setValue,
     <>
       <label htmlFor={name}>{label}</label>
       <WrapperInput>
-        <input type="text" id={name} placeholder={placeholder} value={valueInput} onChange={handleChange} className={className} data-testid={name} />
+        <input type="text" id={name} placeholder={placeholder} value={value || valueInput} onChange={handleChange} className={className} data-testid={name} />
       </WrapperInput>
     </>
   )

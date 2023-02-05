@@ -1,7 +1,40 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render, fireEvent } from '@testing-library/react';
 import Layout from '../Layout';
 import { IFormValues } from '../../../entities/Pokemon';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useMutationRemoveDataPokemon } from '../../../hook/useMutationData';
+
+jest.mock('../../../hook/useQueryData', () => ({
+  useQueryDataPokemons: () => ({
+    data: [{
+      id: 8,
+      name: "Alakazam",
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/065.png",
+      attack: 79,
+      defense: 61,
+      hp: 55,
+      type: "Eléctrico",
+      idAuthor: 1
+    }]
+  }),
+  useQueryDataPokemon: () => ({
+    data: {
+      id: 8,
+      name: "Alakazam",
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/065.png",
+      attack: 79,
+      defense: 61,
+      hp: 55,
+      type: "Eléctrico",
+      idAuthor: 1
+    }
+  }),
+}));
+jest.mock('../../../hook/useMutationData', () => ({
+  useMutationRemoveDataPokemon: () => ({
+    mutate: jest.fn()
+  }),
+}));
 
 const queryClient = new QueryClient();
 
@@ -31,6 +64,21 @@ describe('LayoutComponent', () => {
     const wrapper = screen.getByText(/List Pokemons/);
     expect(wrapper).toBeInTheDocument();
     expect(container).toMatchSnapshot();
+  });
+
+  it('should user click button edit pokemon', () => {
+    renderComponent();
+    fireEvent.click(screen.getByTestId("edit"));
+  });
+
+  it('should user click button remove pokemon', () => {
+    renderComponent();
+    fireEvent.click(screen.getByTestId("remove"));
+  });
+
+  it('should user click button new pokemon', () => {
+    renderComponent();
+    fireEvent.click(screen.getByTestId("new"));
   });
 
 })

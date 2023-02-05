@@ -6,9 +6,10 @@ type Props = {
   label: string
   className?: string
   setValue: Function;
+  value?: number;
 }
 
-const Range: React.FC<Props> = ({ name, label, className, setValue }) => {
+const Range: React.FC<Props> = ({ name, label, className, setValue, value = "" }) => {
   const [valueRange, setValueRange] = useState(0)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +28,7 @@ const Range: React.FC<Props> = ({ name, label, className, setValue }) => {
       <label htmlFor={name}>{label}</label>
       <WrapperRange>
         <span>0</span>
-        <input id={name} type="range" step={1} min={0} max={100} onChange={handleChange} className={className} value={valueRange} data-testid={name} />
+        <input id={name} type="range" step={1} min={0} max={100} onChange={handleChange} className={className} value={value || valueRange} data-testid={name} />
         <span>100</span>
       </WrapperRange>
     </>

@@ -1,4 +1,4 @@
-import { screen, render, fireEvent } from '@testing-library/react';
+import { screen, render, fireEvent, waitFor } from '@testing-library/react';
 import Form from '../Form';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -19,14 +19,31 @@ jest.mock('../../../hook/useQueryData', () => ({
       idAuthor: 1
     }]
   }),
+  useQueryDataPokemon: () => ({
+    data: {
+      id: 8,
+      name: "Alakazam",
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/065.png",
+      attack: 79,
+      defense: 61,
+      hp: 55,
+      type: "Eléctrico",
+      idAuthor: 1
+    }
+  }),
 }));
 
 const queryClient = new QueryClient();
 
-const renderComponent = () =>
+const defaultProps = {
+  id: '8',
+  onCancel: jest.fn()
+}
+
+const renderComponent = (props = defaultProps) =>
   render(
     <QueryClientProvider client={queryClient}>
-      <Form />
+      <Form {...defaultProps} {...props} />
     </QueryClientProvider>,
   );
 
@@ -38,7 +55,7 @@ describe('FormComponent', () => {
     expect(wrapper).toBeInTheDocument();
   });
 
-  it('should user click button submit', () => {
+  it('should user click button submit without error', () => {
     renderComponent();
 
     const name = screen.getByTestId(/name/);
@@ -47,16 +64,33 @@ describe('FormComponent', () => {
     const image = screen.getByTestId(/image/);
     fireEvent.input(image, { target: { value: 'image' } });
 
-    screen.getByTestId("submit");
+    const hp = screen.getByTestId(/hp/);
+    fireEvent.input(hp, { target: { value: 'hp' } });
 
-    fireEvent.click(screen.getByTestId("submit"));
+    const type = screen.getByTestId(/type/);
+    fireEvent.input(type, { target: { value: 'type' } });
+
+    const attack = screen.getByTestId(/attack/);
+    fireEvent.change(attack, { target: { value: 'attack' } });
+
+    const defense = screen.getByTestId(/defense/);
+    fireEvent.change(defense, { target: { value: 'defense' } });
+
+    waitFor(() => {
+      screen.getByTestId("submit");
+      fireEvent.click(screen.getByTestId("submit"));
+    })
+
+    screen.getByTestId("cancel");
+    fireEvent.click(screen.getByTestId("cancel"));
+  });
+
+  it('should render component without data', () => {
+    renderComponent({ ...defaultProps, id: '9' });
   });
 
   it('should user view error', () => {
-    const { container } = renderComponent();
-
-    container.querySelector('input[name="name"]');
-    container.querySelector('input[name="image"]');
+    renderComponent();
     fireEvent.click(screen.getByTestId("submit"));
   });
 })

@@ -5,7 +5,7 @@ import { Pokemon } from '../entities/Pokemon';
 import { getDataPokemon, getDataPokemonById } from '../services/services';
 
 export const useQueryDataPokemons = (): UseQueryResult<Pokemon[], any> => {
-  const { ...data } = useQuery<unknown, unknown, Pokemon[], string[]>({
+  const { ...data } = useQuery<unknown, unknown, Pokemon[], any>({
     queryKey: [QUERY_KEY_POKEMONS],
     queryFn: getDataPokemon
   })
@@ -13,10 +13,11 @@ export const useQueryDataPokemons = (): UseQueryResult<Pokemon[], any> => {
   return data
 }
 
-export const useQueryDataPokemon = (slug: string): UseQueryResult<Pokemon, any> => {
+export const useQueryDataPokemon = (id: string): UseQueryResult<Pokemon, any> => {
   const { ...data } = useQuery<unknown, unknown, Pokemon, string[]>({
-    queryKey: [QUERY_KEY_POKEMON, slug],
-    queryFn: getDataPokemonById
+    queryKey: [QUERY_KEY_POKEMON, id],
+    queryFn: getDataPokemonById,
+    enabled: id != ""
   })
 
   return data

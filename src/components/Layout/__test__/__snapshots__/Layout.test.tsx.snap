@@ -3,7 +3,7 @@
 exports[`LayoutComponent should render the component 1`] = `
 <div>
   <section
-    class="sc-gswNZR equphs"
+    class="sc-gswNZR hyVruo"
   >
     <h1
       class="sc-bcXHqe cUcCso"
@@ -11,7 +11,7 @@ exports[`LayoutComponent should render the component 1`] = `
       List Pokemons
     </h1>
     <div
-      class="sc-dkrFOg jxlyB"
+      class="sc-dkrFOg bsOejD"
     >
       <label
         for="search"
@@ -31,15 +31,18 @@ exports[`LayoutComponent should render the component 1`] = `
       </div>
       <button
         class="add"
+        data-testid="new"
         name="new"
         type="button"
       >
         Nuevo
       </button>
       <div
-        class="sc-hLBbgP esEbUB"
+        class="sc-hLBbgP cAPRvN"
       >
-        <table>
+        <table
+          class="sc-gKPRtg jHGqCH"
+        >
           <thead>
             <tr>
               <th>
@@ -59,14 +62,54 @@ exports[`LayoutComponent should render the component 1`] = `
               </th>
             </tr>
           </thead>
-          <tbody />
+          <tbody>
+            <tr>
+              <td>
+                <b>
+                  Alakazam
+                </b>
+              </td>
+              <td>
+                <img
+                  alt="image"
+                  data-testid="image"
+                  height="32"
+                  src="[object Object]"
+                />
+              </td>
+              <td>
+                79
+              </td>
+              <td>
+                61
+              </td>
+              <td>
+                <img
+                  alt="edit"
+                  class="actions"
+                  data-testid="edit"
+                  height="18"
+                  src="[object Object]"
+                  width="18"
+                />
+                <img
+                  alt="remove"
+                  class="actions"
+                  data-testid="remove"
+                  height="18"
+                  src="[object Object]"
+                  width="18"
+                />
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div
-        class="sc-eDvSVe hvxeMv"
+        class="sc-eDvSVe fYajtk"
       >
         <div
-          class="sc-iBYQkv ksQtxZ"
+          class="sc-ftTHYK cxNuin"
         >
           New Pokemon
         </div>
@@ -74,10 +117,10 @@ exports[`LayoutComponent should render the component 1`] = `
           data-testid="form"
         >
           <div
-            class="sc-ftTHYK dXNeFx"
+            class="sc-pyfCe byJeqw"
           >
             <div
-              class="sc-pyfCe eBIqyv"
+              class="sc-jrcTuL gmagLg"
             >
               <label
                 for="name"
@@ -92,12 +135,12 @@ exports[`LayoutComponent should render the component 1`] = `
                   data-testid="name"
                   id="name"
                   type="text"
-                  value=""
+                  value="Alakazam"
                 />
               </div>
             </div>
             <div
-              class="sc-pyfCe eBIqyv"
+              class="sc-jrcTuL gmagLg"
             >
               <label
                 for="hp"
@@ -112,12 +155,12 @@ exports[`LayoutComponent should render the component 1`] = `
                   data-testid="hp"
                   id="hp"
                   type="text"
-                  value=""
+                  value="55"
                 />
               </div>
             </div>
             <div
-              class="sc-pyfCe eBIqyv"
+              class="sc-jrcTuL gmagLg"
             >
               <label
                 for="type"
@@ -132,12 +175,12 @@ exports[`LayoutComponent should render the component 1`] = `
                   data-testid="type"
                   id="type"
                   type="text"
-                  value=""
+                  value="Eléctrico"
                 />
               </div>
             </div>
             <div
-              class="sc-pyfCe eBIqyv"
+              class="sc-jrcTuL gmagLg"
             >
               <label
                 for="image"
@@ -152,12 +195,12 @@ exports[`LayoutComponent should render the component 1`] = `
                   data-testid="image"
                   id="image"
                   type="text"
-                  value=""
+                  value="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/065.png"
                 />
               </div>
             </div>
             <div
-              class="sc-pyfCe eBIqyv"
+              class="sc-jrcTuL gmagLg"
             >
               <label
                 for="attack"
@@ -165,7 +208,7 @@ exports[`LayoutComponent should render the component 1`] = `
                 Attack
               </label>
               <div
-                class="sc-gKPRtg omiaA"
+                class="sc-iBYQkv dJtkPf"
               >
                 <span>
                   0
@@ -178,7 +221,7 @@ exports[`LayoutComponent should render the component 1`] = `
                   min="0"
                   step="1"
                   type="range"
-                  value="0"
+                  value="79"
                 />
                 <span>
                   100
@@ -186,7 +229,7 @@ exports[`LayoutComponent should render the component 1`] = `
               </div>
             </div>
             <div
-              class="sc-pyfCe eBIqyv"
+              class="sc-jrcTuL gmagLg"
             >
               <label
                 for="defense"
@@ -194,7 +237,7 @@ exports[`LayoutComponent should render the component 1`] = `
                 Defense
               </label>
               <div
-                class="sc-gKPRtg omiaA"
+                class="sc-iBYQkv dJtkPf"
               >
                 <span>
                   0
@@ -207,7 +250,7 @@ exports[`LayoutComponent should render the component 1`] = `
                   min="0"
                   step="1"
                   type="range"
-                  value="0"
+                  value="61"
                 />
                 <span>
                   100
@@ -215,7 +258,7 @@ exports[`LayoutComponent should render the component 1`] = `
               </div>
             </div>
             <div
-              class="sc-jrcTuL hlbgqN"
+              class="sc-kDvujY gWCnxY"
             >
               <button
                 data-testid="submit"
