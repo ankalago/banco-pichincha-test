@@ -3,7 +3,7 @@ import Input from '../Input';
 
 describe('InputComponent', () => {
   beforeEach(() => {
-    render(<Input name="test" label="Test" />);
+    render(<Input name="test" label="Test" setValue={jest.fn()} />);
   });
 
   it('should render the component', () => {

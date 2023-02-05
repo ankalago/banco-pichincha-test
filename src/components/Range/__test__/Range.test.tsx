@@ -1,9 +1,9 @@
-import { screen, render, fireEvent } from '@testing-library/react';
+import { screen, render, fireEvent, waitFor } from '@testing-library/react';
 import Range from '../Range';
 
 const renderComponent = () =>
   render(
-    <Range name="test" label="Test" />,
+    <Range name="test" label="Test" setValue={jest.fn()} />,
   );
 
 describe('RangeComponent', () => {
@@ -17,7 +17,9 @@ describe('RangeComponent', () => {
 
   it('should user click range', () => {
     const { container } = renderComponent();
-    const slider = container.querySelector('input[type="range"]')!;
-    fireEvent.change(slider, { target: { value: 50 } });
+    const range = container.querySelector('input[type="range"]')!;
+    waitFor(() => {
+      fireEvent.change(range, { target: { value: 50 } });
+    })
   });
 })

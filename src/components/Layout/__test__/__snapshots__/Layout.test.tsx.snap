@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutComponent should render the component 1`] = `
+<div>
+  <section
+    class="sc-gswNZR equphs"
+  >
+    <h1
+      class="sc-bcXHqe cUcCso"
+    >
+      List Pokemons
+    </h1>
+    <div
+      class="sc-dkrFOg jxlyB"
+    >
+      <input
+        class="search"
+        name=""
+        type="text"
+      />
+      <button
+        class="add"
+        name=""
+        type="button"
+      >
+        Nuevo
+      </button>
+      <div
+        class="sc-hLBbgP esEbUB"
+      >
+        <table>
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                Image
+              </th>
+              <th>
+                Attack
+              </th>
+              <th>
+                Defense
+              </th>
+              <th>
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Pikachu
+              </td>
+              <td>
+                image
+              </td>
+              <td>
+                123
+              </td>
+              <td>
+                34
+              </td>
+              <td>
+                icons
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="sc-eDvSVe hvxeMv"
+      >
+        <div
+          class="sc-jSUZER iwWwpK"
+        >
+          New Pokemon
+        </div>
+        <form>
+          <div
+            class="sc-gKPRtg eiEucA"
+          >
+            <div
+              class="sc-iBYQkv bNWemY"
+            >
+              <label
+                for="name"
+              >
+                Name
+              </label>
+              <div
+                class="sc-pyfCe jBfwdF"
+              >
+                <input
+                  class=""
+                  data-testid="name"
+                  id="name"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="sc-iBYQkv bNWemY"
+            >
+              <label
+                for="hp"
+              >
+                Hard Power
+              </label>
+              <div
+                class="sc-pyfCe jBfwdF"
+              >
+                <input
+                  class=""
+                  data-testid="hp"
+                  id="hp"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="sc-iBYQkv bNWemY"
+            >
+              <label
+                for="type"
+              >
+                Type
+              </label>
+              <div
+                class="sc-pyfCe jBfwdF"
+              >
+                <input
+                  class=""
+                  data-testid="type"
+                  id="type"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="sc-iBYQkv bNWemY"
+            >
+              <label
+                for="image"
+              >
+                Image
+              </label>
+              <div
+                class="sc-pyfCe jBfwdF"
+              >
+                <input
+                  class=""
+                  data-testid="image"
+                  id="image"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="sc-iBYQkv bNWemY"
+            >
+              <label
+                for="attack"
+              >
+                Attack
+              </label>
+              <div
+                class="sc-jrcTuL dGSIcP"
+              >
+                <span>
+                  0
+                </span>
+                <input
+                  class=""
+                  data-testid="attack"
+                  id="attack"
+                  max="100"
+                  min="0"
+                  step="1"
+                  type="range"
+                  value="0"
+                />
+                <span>
+                  100
+                </span>
+              </div>
+            </div>
+            <div
+              class="sc-iBYQkv bNWemY"
+            >
+              <label
+                for="defense"
+              >
+                Defense
+              </label>
+              <div
+                class="sc-jrcTuL dGSIcP"
+              >
+                <span>
+                  0
+                </span>
+                <input
+                  class=""
+                  data-testid="defense"
+                  id="defense"
+                  max="100"
+                  min="0"
+                  step="1"
+                  type="range"
+                  value="0"
+                />
+                <span>
+                  100
+                </span>
+              </div>
+            </div>
+            <div
+              class="sc-ftTHYK kRrDxX"
+            >
+              <button
+                data-testid="submit"
+                type="submit"
+              >
+                Guardar
+              </button>
+              <button
+                data-testid="cancel"
+                type="reset"
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+`;

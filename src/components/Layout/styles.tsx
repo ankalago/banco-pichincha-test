@@ -77,7 +77,8 @@ const TitleForm = styled.div`
 
 const GridForm = styled.div`
   display: grid;
-  gap: 1em;
+  column-gap: 1em;
+  row-gap: 2em;
   padding: 1em 0;
 
   @media (min-width: 768px) {

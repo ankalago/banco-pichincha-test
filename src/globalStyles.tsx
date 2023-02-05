@@ -89,6 +89,12 @@ const GlobalStyle = createGlobalStyle`
       border-width: 1px;
       outline-color: #4f46e5;
     }
+    
+    &.error {
+      border-color: #ef4444;
+      border-width: 1px;
+      outline-color: #ef4444;
+    }
   }
 
   input[type="range"] {
@@ -104,6 +110,12 @@ const GlobalStyle = createGlobalStyle`
     background-size: 0% 100%;
     background-repeat: no-repeat;
     box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+    &.error {
+      border-color: #ef4444;
+      border-width: 1px;
+      outline-color: #ef4444;
+    }
   }
 
   input[type="range"]::-webkit-slider-thumb {

@@ -4,19 +4,22 @@ import { WrapperRange } from './styles';
 type Props = {
   name: string
   label: string
+  className?: string
+  setValue: Function;
 }
 
-const Range: React.FC<Props> = ({ name, label }) => {
-  const [value, setValue] = useState(0)
+const Range: React.FC<Props> = ({ name, label, className, setValue }) => {
+  const [valueRange, setValueRange] = useState(0)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let target = e.target
-    const valueRange = target.value
+    const valueRange = Number(target.value)
     const min = Number(target.min)
     const max = Number(target.max)
     const val = Number(target.value)
     target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
-    setValue(Number(valueRange))
+    setValueRange(valueRange)
+    setValue(name, valueRange)
   }
 
   return (
@@ -24,7 +27,7 @@ const Range: React.FC<Props> = ({ name, label }) => {
       <label htmlFor={name}>{label}</label>
       <WrapperRange>
         <span>0</span>
-        <input id={name} name={name} type="range" step={1} min={0} max={100} onChange={handleInputChange} value={value} />
+        <input id={name} type="range" step={1} min={0} max={100} onChange={handleChange} className={className} value={valueRange} data-testid={name} />
         <span>100</span>
       </WrapperRange>
     </>
