@@ -7,10 +7,11 @@ type Props = {
   placeholder?: string
   className?: string
   setValue: Function;
+  value?: string;
 }
 
-const Input: React.FC<Props> = ({ name, label, placeholder, className, setValue }) => {
-  const [valueInput, setValueInput] = useState("")
+const Input: React.FC<Props> = ({ name, label, placeholder, className, setValue, value }) => {
+  const [valueInput, setValueInput] = useState(value)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const valueRange = e.target.value

@@ -1,10 +1,34 @@
 import { screen, render, fireEvent } from '@testing-library/react';
 import Layout from '../Layout';
 import { IFormValues } from '../../../entities/Pokemon';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+jest.mock('axios');
+jest.mock('@tanstack/react-query', () => ({
+  ...jest.requireActual('@tanstack/react-query'),
+}));
+jest.mock('../../../hook/useQueryData', () => ({
+  useQueryDataPokemons: () => ({
+    data: [{
+      id: 8,
+      name: "Alakazam",
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/065.png",
+      attack: 79,
+      defense: 61,
+      hp: 55,
+      type: "Eléctrico",
+      idAuthor: 1
+    }]
+  }),
+}));
+
+const queryClient = new QueryClient();
 
 const renderComponent = () =>
   render(
-    <Layout />,
+    <QueryClientProvider client={queryClient}>
+      <Layout />
+    </QueryClientProvider>,
   );
 
 jest.mock('react-hook-form', () => ({

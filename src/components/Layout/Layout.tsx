@@ -4,6 +4,7 @@ import Input from '../Input/Input';
 import Range from '../Range/Range';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IFormValues } from '../../entities/Pokemon';
+import Pokemons from '../Pokemons/Pokemons';
 
 type Props = {}
 
@@ -28,26 +29,7 @@ const Layout: React.FC<Props> = () => {
         <input name="" type="text" className="search"/>
         <button type="button" name="" className="add">Nuevo</button>
         <Table>
-          <table>
-            <thead>
-            <tr>
-              <th>Name</th>
-              <th>Image</th>
-              <th>Attack</th>
-              <th>Defense</th>
-              <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>Pikachu</td>
-              <td>image</td>
-              <td>123</td>
-              <td>34</td>
-              <td>icons</td>
-            </tr>
-            </tbody>
-          </table>
+          <Pokemons />
         </Table>
         <Form>
           <TitleForm>New Pokemon</TitleForm>

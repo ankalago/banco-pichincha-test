@@ -51,19 +51,19 @@ exports[`LayoutComponent should render the component 1`] = `
           <tbody>
             <tr>
               <td>
-                Pikachu
+                Alakazam
               </td>
               <td>
-                image
+                https://assets.pokemon.com/assets/cms2/img/pokedex/detail/065.png
               </td>
               <td>
-                123
+                79
               </td>
               <td>
-                34
+                61
               </td>
               <td>
-                icons
+                Actions
               </td>
             </tr>
           </tbody>
