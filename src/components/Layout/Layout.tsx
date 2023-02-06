@@ -53,9 +53,11 @@ const Layout: React.FC<Props> = () => {
         <TableLayout openForm={openForm}>
           <Pokemons actionSelected={onPokemonSelected} actionRemoved={handleRemovePokemon} filter={searchText} />
         </TableLayout>
-        <FormLayout openForm={openForm}>
-          <Form id={pokemonSelected} onCancel={setOpenForm}/>
-        </FormLayout>
+        {openForm && (
+          <FormLayout>
+            <Form id={pokemonSelected} onCancel={setOpenForm}/>
+          </FormLayout>
+        )}
       </GridLayout>
     </ContentLayout>
   )

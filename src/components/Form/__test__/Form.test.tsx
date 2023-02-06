@@ -17,7 +17,8 @@ jest.mock('../../../hook/useQueryData', () => ({
       hp: 55,
       type: "Eléctrico",
       idAuthor: 1
-    }]
+    }],
+    isFetching: false
   }),
   useQueryDataPokemon: () => ({
     data: {
@@ -29,7 +30,8 @@ jest.mock('../../../hook/useQueryData', () => ({
       hp: 55,
       type: "Eléctrico",
       idAuthor: 1
-    }
+    },
+    isFetching: false
   }),
 }));
 
@@ -92,5 +94,35 @@ describe('FormComponent', () => {
   it('should user view error', () => {
     renderComponent();
     fireEvent.click(screen.getByTestId("submit"));
+  });
+
+  it('should user add new pokemon', () => {
+    renderComponent({ ...defaultProps, id: "" });
+
+    const name = screen.getByTestId(/name/);
+    fireEvent.input(name, { target: { value: "name" } });
+
+    const image = screen.getByTestId(/image/);
+    fireEvent.input(image, { target: { value: 'image' } });
+
+    const hp = screen.getByTestId(/hp/);
+    fireEvent.input(hp, { target: { value: 'hp' } });
+
+    const type = screen.getByTestId(/type/);
+    fireEvent.input(type, { target: { value: 'type' } });
+
+    const attack = screen.getByTestId(/attack/);
+    fireEvent.change(attack, { target: { value: 'attack' } });
+
+    const defense = screen.getByTestId(/defense/);
+    fireEvent.change(defense, { target: { value: 'defense' } });
+
+    waitFor(() => {
+      screen.getByTestId("submit");
+      fireEvent.click(screen.getByTestId("submit"));
+    })
+
+    screen.getByTestId("cancel");
+    fireEvent.click(screen.getByTestId("cancel"));
   });
 })

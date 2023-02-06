@@ -72,14 +72,13 @@ const TableLayout = styled.div<{ openForm: boolean }>`
   }
 `
 
-const FormLayout = styled.div<{ openForm: boolean }>`
+const FormLayout = styled.div`
   grid-column: span 5;
   grid-row: span 1;
   border: 4px #e5e7eb dashed;
   
   padding: 1.5em;
   border-radius: 0.5rem;
-  display: ${({ openForm }) => openForm ? 'block': 'none'};
 `
 
 export {

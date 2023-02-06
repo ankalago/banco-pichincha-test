@@ -15,7 +15,7 @@ type Props = {
 }
 
 const Form: React.FC<Props> = ({ id, onCancel }) => {
-  const { register, handleSubmit, formState: { errors }, setValue } = useForm<IFormPokemon>();
+  const { register, handleSubmit, formState: { errors }, setValue, reset } = useForm<IFormPokemon>();
   const { data, isFetching } = useQueryDataPokemon(id)
   const mutationUpdate = useMutationUpdateDataPokemon()
   const mutationInsert = useMutationInsertDataPokemon()
@@ -26,6 +26,7 @@ const Form: React.FC<Props> = ({ id, onCancel }) => {
     } else {
       mutationInsert.mutate(mapperPostDataPokemon(data))
     }
+    reset()
     onCancel(false)
   };
 
@@ -45,10 +46,15 @@ const Form: React.FC<Props> = ({ id, onCancel }) => {
     setValue('type', data?.type || "")
   }, [data])
 
+  const handleOnCancel = () => {
+    reset()
+    onCancel(false)
+  }
+
   return (
     <>
       <TitleForm>New Pokemon</TitleForm>
-      <form onSubmit={handleSubmit(onSubmit)} data-testid="form">
+      <form onSubmit={handleSubmit(onSubmit)} data-testid="form" autoComplete="off">
         <GridForm>
           <ItemForm>
             <Input name={"name"} label={"Name"} setValue={setValue} className={errors?.name ? 'error' : ''} value={data?.name} />
@@ -70,7 +76,7 @@ const Form: React.FC<Props> = ({ id, onCancel }) => {
           </ItemForm>
           <ButtonsForm>
             <button type="submit" data-testid="submit" disabled={isFetching}>Guardar</button>
-            <button type="reset" data-testid="cancel" onClick={() => onCancel(false)}>Cancelar</button>
+            <button type="reset" data-testid="cancel" onClick={handleOnCancel}>Cancelar</button>
           </ButtonsForm>
         </GridForm>
       </form>
