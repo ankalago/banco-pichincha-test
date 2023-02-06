@@ -39,6 +39,11 @@ const Layout: React.FC<Props> = () => {
     setSearchText(text)
   }
 
+  const handleRemovePokemon = (id: string) => {
+    setPokemonRemoved(id)
+    setOpenForm(false)
+  }
+
   return (
     <ContentLayout>
       <TitleLayout>List Pokemons</TitleLayout>
@@ -46,7 +51,7 @@ const Layout: React.FC<Props> = () => {
         <Input name={"search"} placeholder="Search" setValue={handleChange} />
         <button type="button" name="new" className="add" onClick={() => onPokemonSelected("")} data-testid="new">Nuevo</button>
         <TableLayout openForm={openForm}>
-          <Pokemons pokemonSelected={onPokemonSelected} pokemonRemoved={setPokemonRemoved} filter={searchText} />
+          <Pokemons actionSelected={onPokemonSelected} actionRemoved={handleRemovePokemon} filter={searchText} />
         </TableLayout>
         <FormLayout openForm={openForm}>
           <Form id={pokemonSelected} onCancel={setOpenForm}/>

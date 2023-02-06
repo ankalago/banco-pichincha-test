@@ -7,12 +7,12 @@ import { TablePokemon } from './styles';
 import { PARAMS } from '../../constants';
 
 type Props = {
-  pokemonSelected: Function
-  pokemonRemoved: Function
+  actionSelected: Function
+  actionRemoved: Function
   filter: string
 }
 
-const Pokemons: React.FC<Props> = ({ pokemonSelected, pokemonRemoved, filter }) => {
+const Pokemons: React.FC<Props> = ({ actionSelected, actionRemoved, filter }) => {
   const { data } = useQueryDataPokemons()
 
   return (
@@ -36,8 +36,8 @@ const Pokemons: React.FC<Props> = ({ pokemonSelected, pokemonRemoved, filter }) 
           <td>{pokemon.attack}</td>
           <td>{pokemon.defense}</td>
           <td>
-            <img data-testid="edit" src={editIcon} width={18} height={18} className="actions" alt="edit" onClick={() => pokemonSelected(pokemon.id)} />
-            <img data-testid="remove" src={removeIcon} width={18} height={18} className="actions" alt="remove" onClick={() => pokemonRemoved(pokemon.id)} />
+            <img data-testid="edit" src={editIcon} width={18} height={18} className="actions" alt="edit" onClick={() => actionSelected(pokemon.id)} />
+            <img data-testid="remove" src={removeIcon} width={18} height={18} className="actions" alt="remove" onClick={() => actionRemoved(pokemon.id)} />
           </td>
         </tr>
       ))}

@@ -16,7 +16,7 @@ type Props = {
 
 const Form: React.FC<Props> = ({ id, onCancel }) => {
   const { register, handleSubmit, formState: { errors }, setValue } = useForm<IFormPokemon>();
-  const { data, isLoading, isFetching } = useQueryDataPokemon(id)
+  const { data, isFetching } = useQueryDataPokemon(id)
   const mutationUpdate = useMutationUpdateDataPokemon()
   const mutationInsert = useMutationInsertDataPokemon()
 
@@ -26,6 +26,7 @@ const Form: React.FC<Props> = ({ id, onCancel }) => {
     } else {
       mutationInsert.mutate(mapperPostDataPokemon(data))
     }
+    onCancel(false)
   };
 
   register('name', { required: true })
@@ -68,7 +69,7 @@ const Form: React.FC<Props> = ({ id, onCancel }) => {
             <Range name={"defense"} label={"Defense"} setValue={setValue} className={errors?.defense ? 'error' : ''} value={data?.defense} />
           </ItemForm>
           <ButtonsForm>
-            <button type="submit" data-testid="submit" disabled={isLoading || isFetching}>Guardar</button>
+            <button type="submit" data-testid="submit" disabled={isFetching}>Guardar</button>
             <button type="reset" data-testid="cancel" onClick={() => onCancel(false)}>Cancelar</button>
           </ButtonsForm>
         </GridForm>
