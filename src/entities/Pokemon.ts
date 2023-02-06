@@ -9,7 +9,7 @@ export type Pokemon = {
   idAuthor: number
 }
 
-export interface IFormValues {
+export interface IFormPokemon {
   name: string;
   image: string;
   attack: number;

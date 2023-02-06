@@ -1,8 +1,7 @@
 import { screen, render, fireEvent } from '@testing-library/react';
 import Layout from '../Layout';
-import { IFormValues } from '../../../entities/Pokemon';
+import { IFormPokemon } from '../../../entities/Pokemon';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useMutationRemoveDataPokemon } from '../../../hook/useMutationData';
 
 jest.mock('../../../hook/useQueryData', () => ({
   useQueryDataPokemons: () => ({
@@ -34,6 +33,12 @@ jest.mock('../../../hook/useMutationData', () => ({
   useMutationRemoveDataPokemon: () => ({
     mutate: jest.fn()
   }),
+  useMutationUpdateDataPokemon: () => ({
+    mutate: jest.fn()
+  }),
+  useMutationInsertDataPokemon: () => ({
+    mutate: jest.fn()
+  }),
 }));
 
 const queryClient = new QueryClient();
@@ -46,7 +51,7 @@ const renderComponent = () =>
   );
 
 jest.mock('react-hook-form', () => ({
-  ...jest.requireActual<IFormValues>('react-hook-form'),
+  ...jest.requireActual<IFormPokemon>('react-hook-form'),
   Controller: () => <></>,
   useForm: () => ({
     control: () => ({}),

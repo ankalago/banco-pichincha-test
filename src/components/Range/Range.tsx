@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { WrapperRange } from './styles';
 
-type Props = {
+export type PropsRange = {
   name: string
   label: string
   className?: string
@@ -9,19 +9,30 @@ type Props = {
   value?: number;
 }
 
-const Range: React.FC<Props> = ({ name, label, className, setValue, value = "" }) => {
+const Range: React.FC<PropsRange> = ({ name, label, className, setValue, value = "" }) => {
   const [valueRange, setValueRange] = useState(0)
+
+  const backgroundRangeStart =(min: string | number, max: string | number, value: string | number) => {
+    const minimum = Number(min)
+    const maximum = Number(max)
+    const val = Number(value) || 0
+    return (val - minimum) * 100 / (maximum - minimum);
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let target = e.target
     const valueRange = Number(target.value)
-    const min = Number(target.min)
-    const max = Number(target.max)
-    const val = Number(target.value)
-    target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+    target.style.backgroundSize = `${backgroundRangeStart(target.min, target.max, target.value)}% 100%`;
     setValueRange(valueRange)
     setValue(name, valueRange)
   }
+
+  useEffect(() => {
+    const target = document.getElementById(name)
+    if (target) {
+      target.style.backgroundSize = `${backgroundRangeStart(0, 100, value)}% 100%`;
+    }
+  }, [value])
 
   return (
     <>

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Input from '../Input/Input';
 import Range from '../Range/Range';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { IFormValues } from '../../entities/Pokemon';
+import { IFormPokemon } from '../../entities/Pokemon';
 import { ButtonsForm, GridForm, ItemForm, TitleForm } from './styles';
 import { useQueryDataPokemon } from '../../hook/useQueryData';
+import { useMutationInsertDataPokemon, useMutationUpdateDataPokemon } from '../../hook/useMutationData';
+import { mapperPostDataPokemon, mapperPutDataPokemon } from '../../adapter/pokemon';
 
 type Props = {
   id: string
@@ -12,19 +14,34 @@ type Props = {
 }
 
 const Form: React.FC<Props> = ({ id, onCancel }) => {
-  const { register, handleSubmit, formState: { errors }, setValue } = useForm<IFormValues>();
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm<IFormPokemon>();
   const { data } = useQueryDataPokemon(id)
+  const mutationUpdate = useMutationUpdateDataPokemon()
+  const mutationInsert = useMutationInsertDataPokemon()
 
-  const onSubmit: SubmitHandler<IFormValues> = data => {
-    console.log('************* data: ', data)
+  const onSubmit: SubmitHandler<IFormPokemon> = data => {
+    if (id) {
+      mutationUpdate.mutate(mapperPutDataPokemon(id, data))
+    } else {
+      mutationInsert.mutate(mapperPostDataPokemon(data))
+    }
   };
 
-  register('name', { required: true, value: data?.name })
-  register('image', { required: true, value: data?.name })
-  register('attack', { min: 1, required: true, value: data?.attack })
-  register('defense', { min: 1, required: true, value: data?.defense })
-  register('hp', { required: true, value: data?.hp })
-  register('type', { required: true, value: data?.type })
+  register('name', { required: true })
+  register('image', { required: true })
+  register('attack', { min: 1, required: true })
+  register('defense', { min: 1, required: true })
+  register('hp', { required: true })
+  register('type', { required: true })
+
+  useEffect(() => {
+    setValue('name', data?.name || "")
+    setValue('image', data?.name || "")
+    setValue('attack', data?.attack || 0)
+    setValue('defense', data?.defense || 0)
+    setValue('hp', data?.hp || 0)
+    setValue('type', data?.type || "")
+  }, [data])
 
   return (
     <>

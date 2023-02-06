@@ -220,6 +220,7 @@ exports[`LayoutComponent should render the component 1`] = `
                   max="100"
                   min="0"
                   step="1"
+                  style="background-size: 79% 100%;"
                   type="range"
                   value="79"
                 />
@@ -249,6 +250,7 @@ exports[`LayoutComponent should render the component 1`] = `
                   max="100"
                   min="0"
                   step="1"
+                  style="background-size: 61% 100%;"
                   type="range"
                   value="61"
                 />

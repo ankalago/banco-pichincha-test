@@ -4,14 +4,12 @@ import editIcon from '../../assets/edit.svg'
 import removeIcon from '../../assets/remove.svg'
 import imageIcon from '../../assets/image.svg'
 import { TablePokemon } from './styles';
+import { PARAMS } from '../../constants';
 
 type Props = {
   pokemonSelected: Function
   pokemonRemoved: Function
 }
-
-const params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
-width=300,height=300,left=100,top=100`;
 
 const Pokemons: React.FC<Props> = ({ pokemonSelected, pokemonRemoved }) => {
   const { data } = useQueryDataPokemons()
@@ -32,7 +30,7 @@ const Pokemons: React.FC<Props> = ({ pokemonSelected, pokemonRemoved }) => {
         <tr key={pokemon.name}>
           <td><b>{pokemon.name}</b></td>
           <td>
-            <img data-testid="image" src={imageIcon} height={32} alt="image" onClick={() => window.open(pokemon.image, 'image', params)} />
+            <img data-testid="image" src={imageIcon} height={32} alt="image" onClick={() => window.open(pokemon.image, 'image', PARAMS)} />
           </td>
           <td>{pokemon.attack}</td>
           <td>{pokemon.defense}</td>

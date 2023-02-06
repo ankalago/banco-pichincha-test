@@ -1,9 +1,15 @@
 import { screen, render, fireEvent, waitFor } from '@testing-library/react';
-import Range from '../Range';
+import Range, { PropsRange } from '../Range';
 
-const renderComponent = () =>
+const defaultProp = {
+  name: "test",
+  label: "Test",
+  setValue: jest.fn()
+}
+
+const renderComponent = (props: PropsRange = defaultProp) =>
   render(
-    <Range name="test" label="Test" setValue={jest.fn()} />,
+    <Range {...defaultProp} {...props} />,
   );
 
 describe('RangeComponent', () => {
@@ -20,6 +26,14 @@ describe('RangeComponent', () => {
     const range = container.querySelector('input[type="range"]')!;
     waitFor(() => {
       fireEvent.change(range, { target: { value: 50 } });
+    })
+  });
+
+  it('should render range with value prop', () => {
+    renderComponent({ ...defaultProp, value: 10 });
+    const attack = screen.getByTestId(/test/);
+    waitFor(() => {
+      fireEvent.change(attack, { target: { value: 10 } });
     })
   });
 })

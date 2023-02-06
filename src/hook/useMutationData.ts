@@ -3,7 +3,7 @@ import { deleteDataPokemon, postDataPokemon, putDataPokemon } from '../services/
 import { UseMutationResult } from '@tanstack/react-query/src/types';
 import { QUERY_KEY_POKEMONS } from '../constants';
 
-export const useMutationDataPokemon = (): UseMutationResult<any, any, any, any> => {
+export const useMutationInsertDataPokemon = (): UseMutationResult<any, any, any, any> => {
   const queryClient = useQueryClient()
   const mutation = useMutation({
     mutationFn: postDataPokemon,
