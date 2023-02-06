@@ -13,11 +13,6 @@ exports[`LayoutComponent should render the component 1`] = `
     <div
       class="sc-dkrFOg bsOejD"
     >
-      <label
-        for="search"
-      >
-        search
-      </label>
       <div
         class="sc-jSUZER btAxHp"
       >

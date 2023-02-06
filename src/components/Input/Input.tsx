@@ -3,7 +3,7 @@ import { WrapperInput } from './styles';
 
 type Props = {
   name: string
-  label: string
+  label?: string
   placeholder?: string
   className?: string
   setValue?: Function;
@@ -25,7 +25,7 @@ const Input: React.FC<Props> = ({ name, label, placeholder, className, setValue,
 
   return (
     <>
-      <label htmlFor={name}>{label}</label>
+      {label && <label htmlFor={name}>{label}</label>}
       <WrapperInput>
         <input type="text" id={name} placeholder={placeholder} value={valueInput || ""} onChange={handleChange} className={className} data-testid={name} />
       </WrapperInput>

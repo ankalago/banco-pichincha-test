@@ -38,7 +38,7 @@ const Layout: React.FC<Props> = () => {
     <ContentLayout>
       <TitleLayout>List Pokemons</TitleLayout>
       <GridLayout openForm={openForm}>
-        <Input name={"search"} label={"search"} placeholder="Search" />
+        <Input name={"search"} placeholder="Search" />
         <button type="button" name="new" className="add" onClick={() => onPokemonSelected("")} data-testid="new">Nuevo</button>
         <TableLayout openForm={openForm}>
           <Pokemons pokemonSelected={onPokemonSelected} pokemonRemoved={setPokemonRemoved} />

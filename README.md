@@ -12,6 +12,10 @@
 
 ![Product_Png](https://raw.githubusercontent.com/ankalago/banco-pichincha-test/main/screenshot.png)
 
+## Coverage
+
+![Product_Png](https://raw.githubusercontent.com/ankalago/banco-pichincha-test/main/screenshot-coverage.png)
+
 ## Install Dependencies
 
 ```
