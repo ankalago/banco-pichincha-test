@@ -9,9 +9,10 @@ import { PARAMS } from '../../constants';
 type Props = {
   pokemonSelected: Function
   pokemonRemoved: Function
+  filter: string
 }
 
-const Pokemons: React.FC<Props> = ({ pokemonSelected, pokemonRemoved }) => {
+const Pokemons: React.FC<Props> = ({ pokemonSelected, pokemonRemoved, filter }) => {
   const { data } = useQueryDataPokemons()
 
   return (
@@ -26,7 +27,7 @@ const Pokemons: React.FC<Props> = ({ pokemonSelected, pokemonRemoved }) => {
       </tr>
       </thead>
       <tbody>
-      {data?.map(pokemon => (
+      {data?.filter(item => item.name.toLowerCase().indexOf(filter) >= 0)?.map(pokemon => (
         <tr key={pokemon.name}>
           <td><b>{pokemon.name}</b></td>
           <td>

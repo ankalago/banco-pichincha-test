@@ -39,7 +39,7 @@ describe('PokemonsComponent', () => {
   beforeEach(() => {
     render(
       <QueryClientProvider client={queryClient}>
-        <Pokemons pokemonRemoved={jest.fn()} pokemonSelected={jest.fn()} />
+        <Pokemons pokemonRemoved={jest.fn()} pokemonSelected={jest.fn()} filter="" />
       </QueryClientProvider>
     );
   });

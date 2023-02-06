@@ -15,6 +15,7 @@ const Layout: React.FC<Props> = () => {
   const [openForm, setOpenForm] = useState(false)
   const queryClient = useQueryClient()
   const mutation = useMutationRemoveDataPokemon()
+  const [searchText, setSearchText] = useState("")
 
   useEffect(() => {
     if(pokemonRemoved) {
@@ -34,14 +35,18 @@ const Layout: React.FC<Props> = () => {
     setOpenForm(true)
   }
 
+  const handleChange = (_: string, text: string) => {
+    setSearchText(text)
+  }
+
   return (
     <ContentLayout>
       <TitleLayout>List Pokemons</TitleLayout>
       <GridLayout openForm={openForm}>
-        <Input name={"search"} placeholder="Search" />
+        <Input name={"search"} placeholder="Search" setValue={handleChange} />
         <button type="button" name="new" className="add" onClick={() => onPokemonSelected("")} data-testid="new">Nuevo</button>
         <TableLayout openForm={openForm}>
-          <Pokemons pokemonSelected={onPokemonSelected} pokemonRemoved={setPokemonRemoved} />
+          <Pokemons pokemonSelected={onPokemonSelected} pokemonRemoved={setPokemonRemoved} filter={searchText} />
         </TableLayout>
         <FormLayout openForm={openForm}>
           <Form id={pokemonSelected} onCancel={setOpenForm}/>

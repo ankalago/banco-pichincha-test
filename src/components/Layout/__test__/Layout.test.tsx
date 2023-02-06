@@ -1,4 +1,4 @@
-import { screen, render, fireEvent } from '@testing-library/react';
+import { screen, render, fireEvent, waitFor } from '@testing-library/react';
 import Layout from '../Layout';
 import { IFormPokemon } from '../../../entities/Pokemon';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -84,6 +84,14 @@ describe('LayoutComponent', () => {
   it('should user click button new pokemon', () => {
     renderComponent();
     fireEvent.click(screen.getByTestId("new"));
+  });
+
+  it('should user search text', () => {
+    renderComponent();
+    const search = screen.getByTestId(/search/);
+    waitFor(() => {
+      fireEvent.input(search, { target: { value: "search" } });
+    })
   });
 
 })
