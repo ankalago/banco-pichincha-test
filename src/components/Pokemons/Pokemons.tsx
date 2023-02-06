@@ -28,7 +28,7 @@ const Pokemons: React.FC<Props> = ({ actionSelected, actionRemoved, filter }) =>
       </thead>
       <tbody>
       {data?.filter(item => item.name.toLowerCase().indexOf(filter) >= 0)?.map(pokemon => (
-        <tr key={pokemon.name}>
+        <tr key={`${pokemon.name}-${pokemon.id}`}>
           <td><b>{pokemon.name}</b></td>
           <td>
             <img data-testid="image" src={imageIcon} height={32} alt="image" onClick={() => window.open(pokemon.image, 'image', PARAMS)} />
