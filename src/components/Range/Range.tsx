@@ -10,7 +10,7 @@ export type PropsRange = {
 }
 
 const Range: React.FC<PropsRange> = ({ name, label, className, setValue, value = "" }) => {
-  const [valueRange, setValueRange] = useState(0)
+  const [valueRange, setValueRange] = useState(value)
 
   const backgroundRangeStart =(min: string | number, max: string | number, value: string | number) => {
     const minimum = Number(min)
@@ -34,12 +34,16 @@ const Range: React.FC<PropsRange> = ({ name, label, className, setValue, value =
     }
   }, [value])
 
+  useEffect(() => {
+    setValueRange(value)
+  }, [value])
+
   return (
     <>
       <label htmlFor={name}>{label}</label>
       <WrapperRange>
         <span>0</span>
-        <input id={name} type="range" step={1} min={0} max={100} onChange={handleChange} className={className} value={value || valueRange} data-testid={name} />
+        <input id={name} type="range" step={1} min={0} max={100} onChange={handleChange} className={className} value={valueRange || 0} data-testid={name} />
         <span>100</span>
       </WrapperRange>
     </>

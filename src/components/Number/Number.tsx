@@ -7,10 +7,10 @@ type Props = {
   placeholder?: string
   className?: string
   setValue?: Function;
-  value?: string;
+  value?: number;
 }
 
-const Input: React.FC<Props> = ({ name, label, placeholder, className, setValue, value = "" }) => {
+const Number: React.FC<Props> = ({ name, label, placeholder, className, setValue, value = "" }) => {
   const [valueInput, setValueInput] = useState(value)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,10 +27,10 @@ const Input: React.FC<Props> = ({ name, label, placeholder, className, setValue,
     <>
       <label htmlFor={name}>{label}</label>
       <WrapperInput>
-        <input type="text" id={name} placeholder={placeholder} value={valueInput || ""} onChange={handleChange} className={className} data-testid={name} />
+        <input type="number" id={name} placeholder={placeholder} value={valueInput || 0} onChange={handleChange} className={className} data-testid={name} />
       </WrapperInput>
     </>
   )
 }
 
-export default Input
+export default Number

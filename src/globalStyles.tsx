@@ -71,7 +71,7 @@ const GlobalStyle = createGlobalStyle`
     color: #111827;
   }
 
-  input[type='text'] {
+  input[type='text'], input[type='number'] {
     font-family: 'Poppins', sans-serif;
     max-height: 40px;
     font-size: .875rem;

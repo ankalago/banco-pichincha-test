@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Input from '../Input/Input';
+import Number from '../Number/Number';
 import Range from '../Range/Range';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IFormPokemon } from '../../entities/Pokemon';
@@ -31,7 +32,7 @@ const Form: React.FC<Props> = ({ id, onCancel }) => {
   register('image', { required: true })
   register('attack', { min: 1, required: true })
   register('defense', { min: 1, required: true })
-  register('hp', { required: true })
+  register('hp', { min: 1, required: true })
   register('type', { required: true })
 
   useEffect(() => {
@@ -52,7 +53,7 @@ const Form: React.FC<Props> = ({ id, onCancel }) => {
             <Input name={"name"} label={"Name"} setValue={setValue} className={errors?.name ? 'error' : ''} value={data?.name} />
           </ItemForm>
           <ItemForm>
-            <Input name={"hp"} label={"Hard Power"} setValue={setValue} className={errors?.hp ? 'error' : ''} value={`${data?.hp ?? ''}`} />
+            <Number name={"hp"} label={"Hard Power"} setValue={setValue} className={errors?.hp ? 'error' : ''} value={data?.hp} />
           </ItemForm>
           <ItemForm>
             <Input name={"type"} label={"Type"} setValue={setValue} className={errors?.type ? 'error' : ''} value={data?.type} />
