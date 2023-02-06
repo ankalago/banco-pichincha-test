@@ -16,7 +16,7 @@ type Props = {
 
 const Form: React.FC<Props> = ({ id, onCancel }) => {
   const { register, handleSubmit, formState: { errors }, setValue } = useForm<IFormPokemon>();
-  const { data } = useQueryDataPokemon(id)
+  const { data, isLoading, isFetching } = useQueryDataPokemon(id)
   const mutationUpdate = useMutationUpdateDataPokemon()
   const mutationInsert = useMutationInsertDataPokemon()
 
@@ -37,7 +37,7 @@ const Form: React.FC<Props> = ({ id, onCancel }) => {
 
   useEffect(() => {
     setValue('name', data?.name || "")
-    setValue('image', data?.name || "")
+    setValue('image', data?.image || "")
     setValue('attack', data?.attack || 0)
     setValue('defense', data?.defense || 0)
     setValue('hp', data?.hp || 0)
@@ -68,7 +68,7 @@ const Form: React.FC<Props> = ({ id, onCancel }) => {
             <Range name={"defense"} label={"Defense"} setValue={setValue} className={errors?.defense ? 'error' : ''} value={data?.defense} />
           </ItemForm>
           <ButtonsForm>
-            <button type="submit" data-testid="submit">Guardar</button>
+            <button type="submit" data-testid="submit" disabled={isLoading || isFetching}>Guardar</button>
             <button type="reset" data-testid="cancel" onClick={() => onCancel(false)}>Cancelar</button>
           </ButtonsForm>
         </GridForm>
