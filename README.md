@@ -12,7 +12,7 @@
 
 ![Product_Png](https://raw.githubusercontent.com/ankalago/banco-pichincha-test/main/screenshot.png)
 
-## Coverage
+## Coverage (min 90%)
 
 ![Product_Png](https://raw.githubusercontent.com/ankalago/banco-pichincha-test/main/screenshot-coverage.png)
 
