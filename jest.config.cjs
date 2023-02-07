@@ -9,7 +9,7 @@ module.exports = {
         '**/__tests__/**/*.[jt]s?(x)',
         '**/?(*.)+(spec|test|tests).[tj]s?(x)',
     ],
-    coveragePathIgnorePatterns: ['/node_modules/', '<rootDir>/src/main.tsx'],
+    coveragePathIgnorePatterns: ['/node_modules/', '<rootDir>/src/main.tsx', "^.+\\.(cy)\\.tsx$"],
     moduleNameMapper: {
         '^.+\\.module\\.(css|less)$': 'identity-obj-proxy',
         '^.+\\.(css|sass|scss)$': '<rootDir>/src/fileTransform.js',
@@ -22,5 +22,6 @@ module.exports = {
         '@services/(.*)': '<rootDir>/src/services/$1',
         '@entities/(.*)': '<rootDir>/src/entities/$1',
     },
-    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
+    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+    testPathIgnorePatterns: ['<rootDir>/cypress/']
 };

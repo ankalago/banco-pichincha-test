@@ -50,6 +50,6 @@ describe('PokemonsComponent', () => {
   });
 
   it('should user click image icon pokemon', () => {
-    fireEvent.click(screen.getByTestId("image"));
+    fireEvent.click(screen.getByTestId("item-image"));
   });
 })

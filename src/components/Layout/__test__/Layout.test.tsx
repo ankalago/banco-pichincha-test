@@ -73,12 +73,12 @@ describe('LayoutComponent', () => {
 
   it('should user click button edit pokemon', () => {
     renderComponent();
-    fireEvent.click(screen.getByTestId("edit"));
+    fireEvent.click(screen.getByTestId("item-edit"));
   });
 
   it('should user click button remove pokemon', () => {
     renderComponent();
-    fireEvent.click(screen.getByTestId("remove"));
+    fireEvent.click(screen.getByTestId("item-remove"));
   });
 
   it('should user click button new pokemon', () => {

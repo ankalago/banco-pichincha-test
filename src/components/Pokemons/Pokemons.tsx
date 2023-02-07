@@ -31,13 +31,13 @@ const Pokemons: React.FC<Props> = ({ actionSelected, actionRemoved, filter }) =>
         <tr key={`${pokemon.name}-${pokemon.id}`}>
           <td><b>{pokemon.name}</b></td>
           <td>
-            <img data-testid="image" src={imageIcon} height={32} alt="image" onClick={() => window.open(pokemon.image, 'image', PARAMS)} />
+            <img data-testid="item-image" src={imageIcon} height={32} alt="image" onClick={() => window.open(pokemon.image, 'image', PARAMS)} />
           </td>
           <td>{pokemon.attack}</td>
           <td>{pokemon.defense}</td>
           <td>
-            <img data-testid="edit" src={editIcon} width={18} height={18} className="actions" alt="edit" onClick={() => actionSelected(pokemon.id)} />
-            <img data-testid="remove" src={removeIcon} width={18} height={18} className="actions" alt="remove" onClick={() => actionRemoved(pokemon.id)} />
+            <img id={pokemon.name} data-testid="item-edit" src={editIcon} width={18} height={18} className="actions" alt="edit" onClick={() => actionSelected(pokemon.id)} />
+            <img id={pokemon.name} data-testid="item-remove" src={removeIcon} width={18} height={18} className="actions" alt="remove" onClick={() => actionRemoved(pokemon.id)} />
           </td>
         </tr>
       ))}

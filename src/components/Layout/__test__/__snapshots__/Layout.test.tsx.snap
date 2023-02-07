@@ -67,7 +67,7 @@ exports[`LayoutComponent should render the component 1`] = `
               <td>
                 <img
                   alt="image"
-                  data-testid="image"
+                  data-testid="item-image"
                   height="32"
                   src="[object Object]"
                 />
@@ -82,16 +82,18 @@ exports[`LayoutComponent should render the component 1`] = `
                 <img
                   alt="edit"
                   class="actions"
-                  data-testid="edit"
+                  data-testid="item-edit"
                   height="18"
+                  id="Alakazam"
                   src="[object Object]"
                   width="18"
                 />
                 <img
                   alt="remove"
                   class="actions"
-                  data-testid="remove"
+                  data-testid="item-remove"
                   height="18"
+                  id="Alakazam"
                   src="[object Object]"
                   width="18"
                 />

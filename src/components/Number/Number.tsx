@@ -10,17 +10,17 @@ type Props = {
   value?: number;
 }
 
-const Number: React.FC<Props> = ({ name, label, placeholder, className, setValue, value = "" }) => {
-  const [valueInput, setValueInput] = useState(value)
+const Number: React.FC<Props> = ({ name, label, placeholder, className, setValue, value }) => {
+  const [valueInput, setValueInput] = useState<number>(value || 0)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const valueRange = e.target.value
+    const valueRange = +e.target.value
     setValueInput(valueRange)
     setValue && setValue(name, valueRange)
   }
 
   useEffect(() => {
-    setValueInput(value)
+    value && setValueInput(value)
   }, [value])
 
   return (

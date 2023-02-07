@@ -33,3 +33,23 @@ npm run dev
 ```
 http://localhost:5173/
 ```
+
+## Run unit test
+
+```
+npm run test
+```
+
+## Run unit coverage
+
+```
+npm run coverage
+```
+
+## Run e2e
+
+```
+npm run e2e
+```
+
+![cypress](https://raw.githubusercontent.com/ankalago/banco-pichincha-test/main/pokemon.cy.gif)
