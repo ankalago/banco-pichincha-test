@@ -46,6 +46,14 @@ npm run test
 npm run coverage
 ```
 
+## Run Cypress (visual)
+
+Before run the command should run the dev server (`npm run dev`)
+
+```
+npx cypress open
+```
+
 ## Run e2e
 
 ```
